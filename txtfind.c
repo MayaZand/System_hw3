@@ -12,48 +12,34 @@ return 0;
 
 int similiar(char *s, char *t, int n)
 {
-// char temp[WORD]={0};
-// char orginial[WORD]={0};
-// strcpy(orginial, t);
-// int count =0;
-// int i=0;
-//     while(*s!='\0'||*t!='\0')
-//     {
-//         if(*s==*t)
-//         {
-//             temp[i]=*s;
-//             t++;
-//             i++;
-//         }
-//         else
-//         {
-//             count++;
-//         }
-//         s++;
-//     }
-//     while(*s!='\0')
-//     {
-//         count++;
-//         s++;
-//     }
+char temp[WORD+1]={0};
+char original[WORD+1]={0};
+strcpy(original, t);
+int char_count =0;
+int i=0;
 
-//     if(strcmp(temp, orginial)==0)
-//     {
-//         if(count==n&&*s=='\0')
-//         {
-//             return 1;
-//         }
-//     }
-//     return 0;
-if(strstr(s, t)==NULL)
+
+while((*s!='\0'||*t!='\0')&&char_count<=n)
 {
-    return 0;
+    if(*s==*t)
+    {
+        temp[i++]=*s;
+        t++;
+    }
+    else
+    {
+        char_count++;
+    }
+    s++;
 }
+temp[i]='\0';
 
-int char_count =strlen(s)-strlen(t);
-if(char_count==n)
+if(strcmp(temp, original)==0)
 {
-    return 1;
+    if(char_count==n)
+    {
+        return 1;
+    }
 }
 return 0;
 }
