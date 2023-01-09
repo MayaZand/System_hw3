@@ -1,22 +1,22 @@
 all: txtfind isort
 
 main_a.o: main_a.c isort.h
-	gcc -c main_a.c
+	gcc -c -Wall -g main_a.c
 
 main_b.o: main_b.c txtfind.h
-	gcc -c main_b.c
+	gcc -c -Wall -g main_b.c
 
 isort.o: isort.c isort.h
-	gcc -c isort.c
+	gcc -c -Wall -g isort.c
 
 txtfind.o: txtfind.c txtfind.h
-	gcc -c txtfind.c
+	gcc -c -Wall -g txtfind.c
 
 isort: main_a.o isort.o
-	gcc main_a.o isort.o -o isort
+	gcc main_a.o -Wall -g isort.o -o isort
 
 txtfind: main_b.o txtfind.o
-	gcc main_b.o txtfind.o -o txtfind
+	gcc main_b.o -Wall -g txtfind.o -o txtfind
 
 clean: 
 	rm *.o txtfind isort *.txt
